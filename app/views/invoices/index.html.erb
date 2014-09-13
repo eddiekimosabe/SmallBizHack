@@ -1,2 +1,16 @@
-<h1>Invoices#index</h1>
-<p>Find me in app/views/invoices/index.html.erb</p>
+<h2>All Invoices for <%= @user.business.name %></h2>
+
+<table>
+  <tr>
+	  <th>Type </th>
+    <th>Amount </th>
+    <th colspan="3"></th>
+  </tr>
+
+  <% @invoices.each do |invoice| %>
+    <tr>
+      <td><%= invoice.type %></td>
+      <td><%= invoice.amount %></td>
+    </tr>
+  <% end %>
+</table>
