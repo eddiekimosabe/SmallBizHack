@@ -1,19 +1,9 @@
 Rails.application.routes.draw do
-  get 'businesses/index'
 
-  get 'businesses/edit'
+resources :businesses
 
-  get 'businesses/show'
+resources :invoices
 
-  get 'invoices/index'
-
-  get 'invoices/edit'
-
-  get 'invoices/show'
-
-  get 'invoices/new'
-
-  get 'businesses/new'
   resources :users, :only => [:show, :new, :create]
 
   get 'signup' => 'users#new'
