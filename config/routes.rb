@@ -1,4 +1,16 @@
 Rails.application.routes.draw do
+  get 'businesses/index'
+
+  get 'businesses/edit'
+
+  get 'businesses/show'
+
+  get 'invoices/index'
+
+  get 'invoices/edit'
+
+  get 'invoices/show'
+
   get 'invoices/new'
 
   get 'businesses/new'
@@ -15,7 +27,7 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'welcome#index'
+  root 'invoices#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
