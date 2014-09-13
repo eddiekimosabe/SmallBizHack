@@ -40,6 +40,7 @@ gem 'debugger', group: [:development, :test]
 
 #OCR
 gem 'rtesseract', '~> 1.2.4'
+gem 'rmagick', '~> 2.13.3'
 
 group :development, :test do
   gem 'pry-rails'
