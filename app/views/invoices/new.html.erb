@@ -1,6 +1,6 @@
 <h1>New Invoices</h1>
 
-<form action="/invoices" method="post">
+<form action="/businesses/#{business_id}/invoices" method="post">
 
   <label for="invoice_name">Company Name:</label><br />
   <input id="invoice_name" name="invoice[name]" type="text"><br />

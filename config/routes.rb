@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
 
-resources :businesses
-
-resources :invoices
+  resources :businesses do
+    resources :invoices
+  end
 
   resources :users, :only => [:show, :new, :create]
 
