@@ -9,5 +9,4 @@ class Business < ActiveRecord::Base
   def invoices
   	Invoice.where('payer_id = ? OR receiver_id = ?', self.id, self.id)
   end
-  
 end

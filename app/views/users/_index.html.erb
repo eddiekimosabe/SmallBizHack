@@ -11,11 +11,12 @@
   </thead>
   <tbody>
 <% @user.payable_invoices.order('due_date ASC').limit(5).each do |payable| %>
-  <tr>
+  <tr onclick="document.location = '/invoices/show/<%= payable.id %>';">
     <td><%= payable.due_date %></td>
     <td><%= payable.receiver.name %></td>
-    <td><%= payable.amount %></td>
+    <td>$<%= payable.amount %></td>
   </tr>
+  </a>
 <% end %>
 </tbody>
 </table>

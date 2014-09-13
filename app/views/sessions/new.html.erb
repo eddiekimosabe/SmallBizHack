@@ -1,11 +1,14 @@
 <h1>Sign In</h1>
 <% if flash.alert %>
-<p><%= flash.alert %></p>
+<div data-alert class="alert-box alert radius">
+  <%= flash.alert %>
+  <a href="#" class="close">&times;</a>
+</div>
 <% end %>
 <%= form_tag login_path do |f| -%>
   <%= label_tag :email, "Email" %>
   <%= text_field_tag :email %>
   <%= label_tag :password, "Password" %>
   <%= password_field_tag :password %>
-  <%= submit_tag "Submit", :disable_with => 'Submiting...' %>
+  <%= submit_tag "Submit", :disable_with => 'Submiting...', class: 'button radius expand' %>
 <% end %>

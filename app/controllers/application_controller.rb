@@ -7,4 +7,10 @@ class ApplicationController < ActionController::Base
   def current_user
     @user = User.find(session[:user_id]) if session[:user_id]
   end
+
+  def require_logged_in_as_owner
+    unless current_user && current_user == @business.user
+      redirect_to root_path and return true
+    end
+  end
 end

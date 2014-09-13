@@ -11,8 +11,7 @@ User.create(
   password: "testing123"
 )
 
-
-9.times do
+10.times do
   User.create(
     email: Faker::Internet.email,
     password: Faker::Internet.password
