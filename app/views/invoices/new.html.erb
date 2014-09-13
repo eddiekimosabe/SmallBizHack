@@ -1,2 +1,26 @@
-<h1>Invoices#new</h1>
-<p>Find me in app/views/invoices/new.html.erb</p>
+<h1>New Invoices</h1>
+
+<form action="/businesses/#{business_id}/invoices" method="post">
+
+  <label for="invoice_name">Company Name:</label><br />
+  <input id="invoice_name" name="invoice[name]" type="text"><br />
+
+  <label for="invoice_amount">Amount:</label><br />
+  <input id="invoice_amount" name="invoice[amount]" type="text"><br />
+
+  <label for="invoice_type">Payables or Receivable:</label><br />
+  <input id="invoice_type" name="invoice[type]" type="text"><br />
+
+  <label for="invoice_due_date">Due Date: </label><br />
+  <input id="invoice_due_date" name="invoice[due_date]" type="text"><br />
+
+ <label for="invoice_paid_date">Paid Date:</label><br />
+ <input id="invoice_paid_date" name="invoice[paid_date]" type="text"><br />
+
+ <label for="invoice_received_date">Received Date:</label><br />
+ <input id="invoice_received_date" name="invoice[received_date]" type="text"><br />
+
+  <input type="submit" value="Create invoice" />
+
+</form>
+
