@@ -38,6 +38,9 @@ gem 'bcrypt', '~> 3.1.7'
 # Use debugger
 gem 'debugger', group: [:development, :test]
 
+#OCR
+gem 'rtesseract', '~> 1.2.4'
+
 group :development, :test do
   gem 'pry-rails'
   gem 'faker'
