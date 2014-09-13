@@ -1,2 +1,6 @@
-<h1>Businesses#edit</h1>
-<p>Find me in app/views/businesses/edit.html.erb</p>
+<h1>Edit Your Business</h1>
+<%= form_for @business, action: :create do |f| -%>
+  <%= f.label :name, "Name" %>
+  <%= f.text_field :name %>
+  <%= f.submit "Submit" %>
+<% end -%>

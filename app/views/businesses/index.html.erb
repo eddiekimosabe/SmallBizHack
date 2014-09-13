@@ -2,7 +2,7 @@
 <p>Find me in app/views/businesses/index.html.erb</p>
 <% @businesses.each do |business| %>
 <ul>
-  <li><%= business.name %></li>
+  <li><%= link_to business.name, business_path(business) %></li>
 </ul>
 <% end %>
 
