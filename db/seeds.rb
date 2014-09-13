@@ -21,13 +21,28 @@ User.all.each do |user|
   user.business.payable_invoices.create(
     amount: rand(100..1000),
     due_date: rand(60).days.from_now,
-    received_date: Date.now,
-    receiver_id: Business.all.sample
+    received_date: DateTime.now,
+    receiver_id: Business.all.sample.id
   )
   user.business.receivable_invoices.create(
     amount: rand(100..1000),
     due_date: rand(60).days.from_now,
-    received_date: Date.now,
-    payable_id: Business.all.sample
+    received_date: DateTime.now,
+    payer_id: Business.all.sample.id
+  )
+end
+
+10.times do
+  User.first.business.payable_invoices.create(
+    amount: rand(100..1000),
+    due_date: rand(60).days.from_now,
+    received_date: DateTime.now,
+    receiver_id: Business.all.sample.id
+  )
+  User.first.business.receivable_invoices.create(
+    amount: rand(100..1000),
+    due_date: rand(60).days.from_now,
+    received_date: DateTime.now,
+    payer_id: Business.all.sample.id
   )
 end
