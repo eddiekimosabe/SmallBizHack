@@ -1,0 +1,11 @@
+<h1>Sign In</h1>
+<% if flash.alert %>
+<p><%= flash.alert %></p>
+<% end %>
+<%= form_tag login_path do |f| -%>
+  <%= label_tag :email, "Email" %>
+  <%= text_field_tag :email %>
+  <%= label_tag :password, "Password" %>
+  <%= password_field_tag :password %>
+  <%= submit_tag "Submit", :disable_with => 'Submiting...' %>
+<% end %>
