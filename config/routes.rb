@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   resources :users, :only => [:show, :new, :create]
 
   get 'signup' => 'users#new'
+  post 'signup' => 'users#create'
 
   get 'login' => "sessions#new"
   post 'login' => "sessions#create"
@@ -27,7 +28,7 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'invoices#index'
+  root 'welcome#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

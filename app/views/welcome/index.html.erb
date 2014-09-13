@@ -1,0 +1,6 @@
+<% if @user %>
+  <%= render partial: 'users/index' %>
+<% else %>
+  <%= link_to "Signup", signup_path  %>
+  <%= link_to "Login", login_path  %>
+<% end %>

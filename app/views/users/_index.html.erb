@@ -1,0 +1,41 @@
+<h2>Upcoming Invoices for <%= @user.business.name %></h2>
+
+<h3>Payable</h3>
+<table>
+  <thead>
+    <tr>
+      <th>Due</th>
+      <th>Recipient</th>
+      <th>Amount</th>
+    </tr>
+  </thead>
+  <tbody>
+<% @user.payable_invoices.order('due_date ASC').limit(5).each do |payable| %>
+  <tr>
+    <td><%= payable.due_date %></td>
+    <td><%= payable.receiver.name %></td>
+    <td><%= payable.amount %></td>
+  </tr>
+<% end %>
+</tbody>
+</table>
+<h3>Receivable</h3>
+<table>
+  <thead>
+    <tr>
+      <th>Due</th>
+      <th>Payer</th>
+      <th>Amount</th>
+    </tr>
+  </thead>
+  <tbody>
+<% @user.receivable_invoices.order('due_date ASC').limit(5).each do |receivable| %>
+  <tr>
+    <td><%= receivable.due_date %></td>
+    <td><%= receivable.payer.name %></td>
+    <td><%= receivable.amount %></td>
+  </tr>
+<% end %>
+</tbody>
+</table>
+<h2>Cashflow Graph</h2>
