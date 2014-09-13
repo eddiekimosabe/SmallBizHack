@@ -2,7 +2,7 @@ class CreateInvoices < ActiveRecord::Migration
   def change
     create_table :invoices do |t|
       t.integer :amount
-      t.type :string
+      t.string :type
       t.date :due_date
       t.date :paid_date
       t.date :received_date
