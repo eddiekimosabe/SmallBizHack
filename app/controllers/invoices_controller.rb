@@ -14,8 +14,11 @@ class InvoicesController < ApplicationController
     @invoice = Invoice.new(invoice_params)
     @invoice.payer_id = @payer_business.id
     @invoice.receiver_id = @receiver_business.id
-    @invoice.save
-    redirect_to business_invoices_path
+    if @invoice.save
+      redirect_to business_invoices_path
+    else
+      render :new
+    end
   end
 
   def index
