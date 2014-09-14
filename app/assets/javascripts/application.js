@@ -16,6 +16,7 @@
 //= require foundation
 //= require turbolinks
 //= require_tree .
+//= require cash_flow_graph
 
 $(function(){ $(document).foundation(); });
 
