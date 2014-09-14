@@ -19,11 +19,11 @@ User.create(
 end
 
 20.times do
-business = Business.create(name: Faker::Company.name)
+business = Business.create(name: Faker::Company.name, email: Faker::Internet.email)
 end
 
 User.all.each do |user|
-  Business.create(name: Faker::Company.name, user_id: user.id)
+  Business.create(name: Faker::Company.name, email: Faker::Internet.email, user_id: user.id)
   user.business.payable_invoices.create(
     amount: rand(100..1000),
     due_date: rand(60).days.from_now,
