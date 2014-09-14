@@ -16,9 +16,6 @@
           <li>
             <%= link_to "Profile", @business %>
           </li>
-          <li>
-	    <%= link_to "Add Invoice", new_business_invoice_path(@business) %>
-	  </li>
 	  <li>
             <%= link_to "Invoices", business_invoices_path(@business) %>
           </li>
@@ -29,9 +26,10 @@
       </ul>
 
     <ul class="left">
-      <li><%= link_to "Create Invoice", new_business_invoice_path(@business) %></li>
+      <li><%= link_to "CREATE INVOICE", new_business_invoice_path(@business) %></li>
     </ul>
 
   </section>
+
   <% end %>
 </nav>
