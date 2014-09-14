@@ -1,0 +1,80 @@
+<script src="http://code.highcharts.com/highcharts.js"></script>
+<script src="http://code.highcharts.com/modules/exporting.js"></script>
+<script>
+$(function () {
+    $('#container').highcharts({
+        chart: {
+            zoomType: 'xy'
+        },
+        plotOptions: {
+                column: {
+                    stacking: 'normal'
+                }
+            },
+        title: {
+            text: 'Title'
+        },
+        subtitle: {
+            text: 'Subtitle'
+        },
+        yAxis:
+        { // Primary yAxis
+            labels: {
+                format: '{value}',
+                style: {
+                    color: Highcharts.getOptions().colors[1]
+                }
+            },
+            title: {
+                text: 'Amount',
+                style: {
+                    color: Highcharts.getOptions().colors[1]
+                }
+            }
+        },
+        tooltip: {
+            shared: true
+        },
+        legend: {
+            layout: 'vertical',
+            align: 'left',
+            x: 120,
+            verticalAlign: 'top',
+            y: 100,
+            floating: true,
+            backgroundColor: (Highcharts.theme && Highcharts.theme.legendBackgroundColor) || '#FFFFFF'
+        },
+        xAxis: [{
+            categories:[<%= raw @x_axis %>]
+        }],
+        series: [{
+            name: 'Receivable',
+            type: 'column',
+            data: [<%= @receivable_vars %>],
+            tooltip: {
+                valuePrefix: '$'
+            },
+            stack : '0'
+
+        },{
+            name: 'Payable',
+            type: 'column',
+            data: [<%= @payable_vars %>],
+            tooltip: {
+                valuePrefix: '$'
+            },
+            stack : '0'
+
+        }, {
+            name: 'Net',
+            type: 'spline',
+            data: [<%= @net_vars %>],
+            tooltip: {
+                valuePrefix: '$'
+            }
+        }]
+    });
+});
+</script>
+
+<div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
