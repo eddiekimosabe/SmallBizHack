@@ -1,5 +1,12 @@
 module ChartsHelper
 
+  def set_up_vars_for_charts_api
+    set_payable_vars
+    set_receivable_vars
+    set_net_vars
+    set_x_axis
+  end
+
   def sums
     sums = receivable_sums.zip(payable_sums).map {|array| array.inject(:+)}
     @sums = []
@@ -11,7 +18,7 @@ module ChartsHelper
   end
 
   def business
-    @business = @user.business if current_user
+    @business ||= @user.business if current_user
   end
 
   def payable
