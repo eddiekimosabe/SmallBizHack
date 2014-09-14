@@ -43,6 +43,9 @@ $(function () {
         },
         xAxis: [{
             categories: xAxis,
+            labels: {
+                rotation: -45
+              },
             title: {
                 text: 'Date',
                 style: {
