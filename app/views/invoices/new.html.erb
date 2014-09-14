@@ -38,11 +38,11 @@
 	$('input[name=payer_name]').val(businessName);
 	$('input[name=receiver_name]').val('');
 	$('input[name=receiver_name]').prop('disabled', false);
-	$('input[name=payer_name]').prop('disabled', true);
+	$('input[name=payer_name]').prop('checked', true);
       } else {
 	$('input[name=receiver_name]').val(businessName);
 	$('input[name=payer_name]').val('');
-	$('input[name=receiver_name]').prop('disabled', true);
+	$('input[name=receiver_name]').prop('checked', true);
 	$('input[name=payer_name]').prop('disabled', false);
       }
     });
