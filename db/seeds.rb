@@ -20,6 +20,7 @@ end
 
 20.times do
 business = Business.create(name: Faker::Company.name)
+end
 
 User.all.each do |user|
   Business.create(name: Faker::Company.name, user_id: user.id)
