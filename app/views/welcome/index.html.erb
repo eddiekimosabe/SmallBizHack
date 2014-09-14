@@ -1,3 +1,11 @@
+<% if @user %>
+	<%= render partial: 'users/index' %>
+<% else %>
+	<div class="row">
+	<div class="small-6 small-centered columns">
+	<%= link_to "Signup", signup_path, class: 'button radius expand'%>
+	<%= link_to "Login", login_path, class: 'button radius expand'  %>
+
 <h2>Reported Companies</h2>
 <dl class="tabs" data-tab>
   <dd class="active"><a href="#payable">Payable</a></dd>
@@ -18,7 +26,6 @@
     		<% if business.received_flags.count > 0 %>
 	      	<td><%= business.name %></td>
 	      	<td><%= business.received_flags.count %></td>
-	      	
       	<% end %>
       </tr>
     <% end %>
@@ -45,3 +52,6 @@
   </table>
   </div>
 </div>
+
+</div>
+<% end %>
