@@ -19,42 +19,40 @@ User.create(
 end
 
 20.times do
+<<<<<<< HEAD
+  Business.create(name: Faker::Company.name)
+=======
   business = Business.create(name: Faker::Company.name)
+>>>>>>> 14c278a01fbb448dd32fd75f5653cfec02d7f3b9
 end
 
 User.all.each do |user|
-
   Business.create(name: Faker::Company.name, user_id: user.id)
-  received_date = rand(-30..0)
   user.business.payable_invoices.create(
     amount: rand(100..1000),
-    due_date: rand(received_date..30).days.from_now,
-    received_date: received_date.days.from_now,
+    due_date: rand(60).days.from_now,
+    received_date: DateTime.now,
     receiver_id: Business.all.sample.id
-
   )
-  received_date = rand(-30..0)
   user.business.receivable_invoices.create(
     amount: rand(100..1000),
-    due_date: rand(received_date..30).days.from_now,
-    received_date: received_date.days.from_now,
+    due_date: rand(60).days.from_now,
+    received_date: DateTime.now,
     payer_id: Business.all.sample.id
   )
 end
 
 10.times do
-  received_date = rand(-30..0)
   User.first.business.payable_invoices.create(
     amount: rand(100..1000),
-    due_date: rand(received_date..30).days.from_now,
-    received_date: received_date.days.from_now,
+    due_date: rand(60).days.from_now,
+    received_date: DateTime.now,
     receiver_id: Business.all.sample.id
   )
-  received_date = rand(-30..0)
   User.first.business.receivable_invoices.create(
     amount: rand(100..1000),
-    due_date: rand(received_date..30).days.from_now,
-    received_date: received_date.days.from_now,
+    due_date: rand(60).days.from_now,
+    received_date: DateTime.now,
     payer_id: Business.all.sample.id
   )
 end
