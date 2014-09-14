@@ -18,7 +18,7 @@ module ChartsHelper
   end
 
   def business
-    @business ||= @user.business if current_user
+    @business ||= current_user.business if current_user
   end
 
   def payable

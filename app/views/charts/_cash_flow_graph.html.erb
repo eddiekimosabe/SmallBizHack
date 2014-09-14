@@ -1,10 +1,13 @@
 <script src="http://code.highcharts.com/highcharts.js"></script>
 <script src="http://code.highcharts.com/modules/exporting.js"></script>
-<script>
-  businessName = '<%= @business.name.to_s %>'
-  xAxis = [ <%= raw @x_axis %> ]
-  receivableVars = [ <%= @receivable_vars  %> ]
-  payableVars = [ <%= @payable_vars %> ]
-  netVars = [ <%= @net_vars %> ]
-</script>
+<% if current_user %>
+  <% set_up_vars_for_charts_api %>
+  <script>
+    businessName = '<%= @business.name.to_s %>'
+    xAxis = [ <%= raw @x_axis %> ]
+    receivableVars = [ <%= @receivable_vars  %> ]
+    payableVars = [ <%= @payable_vars %> ]
+    netVars = [ <%= @net_vars %> ]
+  </script>
+<% end %>
 <div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
