@@ -8,6 +8,7 @@ class BusinessesController < ApplicationController
 
   def index
     @businesses = Business.all
+    @businesses = @businesses.order("name ASC")
   end
 
   def create
