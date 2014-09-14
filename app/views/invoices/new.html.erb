@@ -1,7 +1,14 @@
 <h1>Create Invoices</h1>
 
 <%= form_for [@business, @invoice], action: :create do |f| -%>
+  <label>Payable
+  <%= radio_button_tag 'type', 'payable' %>
+  </label>
 
+  <label>
+    Receivable
+    <%= radio_button_tag 'type', 'receivable' %>
+  </label>
   <%= f.label :amount, "Amount"  %>
   <%= f.text_field :amount %>
 
@@ -22,3 +29,22 @@
 
   <%= f.submit "Submit", class: "button radius expand" %>
 <% end -%>
+
+<script>
+  var businessName = '<%= @business.name %>';
+  $(document).ready(function(){
+    $('input[type=radio]').click(function(e){
+      if ($(this).val() === 'payable') {
+	$('input[name=payer_name]').val(businessName);
+	$('input[name=receiver_name]').val('');
+	$('input[name=receiver_name]').prop('disabled', false);
+	$('input[name=payer_name]').prop('disabled', true);
+      } else {
+	$('input[name=receiver_name]').val(businessName);
+	$('input[name=payer_name]').val('');
+	$('input[name=receiver_name]').prop('disabled', true);
+	$('input[name=payer_name]').prop('disabled', false);
+      }
+    });
+  });
+</script>
