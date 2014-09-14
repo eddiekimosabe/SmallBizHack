@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  get 'charts/index'
   resources :businesses do
     resources :invoices
   end
