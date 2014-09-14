@@ -6,11 +6,20 @@ class Invoice < ActiveRecord::Base
 
   def type(business)
     if business.id == receiver_id
-      return "receivable"
+      return "Receivable"
     elsif business.id == payer_id
-      return  "payable"
+      return  "Payable"
     else
       return nil
     end
   end
+
+  def payer_name
+    payer.name
+  end
+
+  def receiver_name
+    receiver.name
+  end
+  
 end
