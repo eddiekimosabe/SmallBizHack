@@ -14,18 +14,18 @@
           <th>Days Outstanding</th>
       	  <th>Recipient</th>
       	  <th>Amount</th>
-          <th>Flag</th>
+          <th>Report for Not Paying</th>
       	</tr>
       </thead>
       <tbody>
     <% @user.payable_invoices.order('due_date ASC').each do |invoice| %>
-      <tr onclick="document.location = '/businesses/<%= @user.business.id %>/invoices/<%= invoice.id %>';">
-      	<td><%= invoice.due_date %></td>
-      	<td><%= invoice.received_date %></td>
-      	<td><%= invoice.days_outstanding %></td>
-      	<td><%= invoice.receiver_name %></td>
-      	<td>$<%= invoice.amount %></td>
-        <td></td>
+      <tr>
+      	<td onclick="document.location = '/businesses/<%= @user.business.id %>/invoices/<%= invoice.id %>';"><%= invoice.due_date %></td>
+      	<td onclick="document.location = '/businesses/<%= @user.business.id %>/invoices/<%= invoice.id %>';"><%= invoice.received_date %></td>
+      	<td onclick="document.location = '/businesses/<%= @user.business.id %>/invoices/<%= invoice.id %>';"><%= invoice.days_outstanding %></td>
+      	<td onclick="document.location = '/businesses/<%= @user.business.id %>/invoices/<%= invoice.id %>';"><%= invoice.receiver_name %></td>
+      	<td onclick="document.location = '/businesses/<%= @user.business.id %>/invoices/<%= invoice.id %>';">$<%= invoice.amount %></td>
+        <td><input type="submit" name="flag" value="Report" data-flagged-id="<%= invoice.receiver.id %>" data-flagged-invoice-id="<%= invoice.id %>" data-flagger-id="<%= @user.business.id %>"></td>
       </tr>
     <% end %>
     </tbody>
@@ -40,19 +40,48 @@
           <th>Days Outstanding</th>
           <th>Payer</th>
           <th>Amount</th>
+          <th>Report for Not Paying</th>
         </tr>
       </thead>
       <tbody>
     <% @user.receivable_invoices.order('due_date ASC').each do |invoice| %>
-      <tr onclick="document.location = '/businesses/<%= @user.business.id %>/invoices/<%= invoice.id %>';">
-        <td><%= invoice.due_date %></td>
-        <td><%= invoice.received_date %></td>
-        <td><%= invoice.days_outstanding %></td>
-        <td><%= invoice.payer_name %></td>
-        <td>$<%= invoice.amount %></td>
+      <tr>
+        <td  onclick="document.location = '/businesses/<%= @user.business.id %>/invoices/<%= invoice.id %>';"><%= invoice.due_date %></td>
+        <td  onclick="document.location = '/businesses/<%= @user.business.id %>/invoices/<%= invoice.id %>';"><%= invoice.received_date %></td>
+        <td  onclick="document.location = '/businesses/<%= @user.business.id %>/invoices/<%= invoice.id %>';"><%= invoice.days_outstanding %></td>
+        <td  onclick="document.location = '/businesses/<%= @user.business.id %>/invoices/<%= invoice.id %>';"><%= invoice.payer_name %></td>
+        <td  onclick="document.location = '/businesses/<%= @user.business.id %>/invoices/<%= invoice.id %>';">$<%= invoice.amount %></td>
+        <td><input type="submit" name="flag" value="Report" data-flagged-id="<%= invoice.payer.id %>" data-flagged-invoice-id="<%= invoice.id %>" data-flagger-id="<%= @user.business.id %>"></td>
       </tr>
     <% end %>
     </tbody>
   </table>
   </div>
 </div>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    $('input[type=submit]').click(function(e){
+      var flaggedId = $(this).attr('data-flagged-id');
+      var flaggerId = $(this).attr('data-flagger-id');
+      var params = {
+        'flag': {
+          flagged_id: flaggedId,
+          flagger_id: flaggerId,
+          flagged_invoice_id: $(this).attr('data-flagged-invoice-id')
+        }
+      }
+      console.log(JSON.stringify(params))
+      $.ajax({
+        url: '/businesses/' + flaggedId + '/flags',
+        method: "POST",
+        data: JSON.stringify(params),
+        dataType: 'json',
+        contentType: 'application/json'
+      }).done(function(response){
+        console.log(response);
+      })
+    })
+  });
+
+</script>

@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
   resources :businesses do
     resources :invoices
+    resources :flags, :only => [:create]
   end
 
   resources :users, :only => [:show, :new, :create]
