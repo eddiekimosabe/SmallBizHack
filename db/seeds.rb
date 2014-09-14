@@ -19,7 +19,7 @@ User.create(
 end
 
 20.times do
-  Business.create(name: Faker::Company.name, flagged_id: Business.all.sample.id, flagger_id: business.id)
+  business = Business.create(name: Faker::Company.name)
 end
 
 User.all.each do |user|
@@ -57,4 +57,8 @@ end
     received_date: received_date.days.from_now,
     payer_id: Business.all.sample.id
   )
+end
+
+20.times do
+  Business.all.sample.raised_flags.create(flagged_id: Business.all.sample.id, flagged_invoice_id: Invoice.all.sample.id)
 end
