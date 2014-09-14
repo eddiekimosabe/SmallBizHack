@@ -15,6 +15,5 @@
 //= require twitter/typeahead
 //= require foundation
 
-
 $(function(){ $(document).foundation(); });
 
