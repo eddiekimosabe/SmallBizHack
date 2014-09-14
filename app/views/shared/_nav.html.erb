@@ -31,5 +31,15 @@
 
   </section>
 
+  <% else %>
+  <section class="top-bar-section">
+    <ul class="right">
+      <li><%= link_to "Signin", login_path%>
+      </li>=
+      <li><%= link_to "Signup", signup_path %>
+      </li>
+    </ul>
+  </section>
   <% end %>
 </nav>
+

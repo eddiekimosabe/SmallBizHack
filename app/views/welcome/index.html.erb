@@ -1,12 +1,10 @@
 <% if @user %>
+
   <%= render partial: 'users/index' %>
+
 <% else %>
 
 <h2>Reported Companies</h2>
-<dl class="tabs" data-tab>
-  <dd class="active"><a href="#payable">Payable</a></dd>
-  <dd><a href="#receivable">Receivable</a></dd>
-</dl>
 
 <div class="tabs-content">
   <div class="content active" id="payable">
@@ -22,7 +20,6 @@
     		<% if business.received_flags.count > 0 %>
 	      	<td><%= business.name %></td>
 	      	<td><%= business.received_flags.count %></td>
-
       	<% end %>
       </tr>
     <% end %>
