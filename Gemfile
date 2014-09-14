@@ -46,8 +46,9 @@ gem 'rmagick', '~> 2.13.3'
 
 group :development, :test do
   gem 'pry-rails'
-  gem 'faker'
 end
+
+gem 'faker'
 gem 'rails_12factor', group: :production
 gem 'foundation-rails'
 
