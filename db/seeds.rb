@@ -19,7 +19,7 @@ User.create(
 end
 
 20.times do
-  business = Business.create(name: Faker::Company.name)
+business = Business.create(name: Faker::Company.name)
 end
 
 User.all.each do |user|

@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
   resources :users, :only => [:show, :new, :create]
 
-  get 'businesses/:id/report' => 'businesses#report'
+  get 'businesses/:id/report' => 'businesses#report', :as => :report
 
   get 'signup' => 'users#new'
   post 'signup' => 'users#create'

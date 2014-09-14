@@ -7,6 +7,7 @@ class Business < ActiveRecord::Base
   has_many :flags
   has_many :raised_flags, class_name: "Flag", foreign_key: "flagger_id"
   has_many :flagged_invoices, :through => "flags"
+  has_many :flags
 
   validates_presence_of :name
 

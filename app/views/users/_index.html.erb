@@ -33,11 +33,12 @@
 <% @user.receivable_invoices.order('due_date ASC').limit(5).each do |invoice| %>
   <tr onclick="document.location = '/businesses/<%= @user.business.id %>/invoices/<%= invoice.id %>';">
     <td><%= invoice.due_date %></td>
-    <td><%= invoice.receiver.name %></td>
+    <td><%= invoice.payer.name %></td>
     <td>$<%= invoice.amount %></td>
   </tr>
 <% end %>
 </tbody>
 </table>
 <h2>Cashflow Graph</h2>
+<%= javascript_include_tag 'cash_flow_graph' %>
 <%= render partial: 'charts/cash_flow_graph' %>
