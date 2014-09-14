@@ -19,12 +19,7 @@ User.create(
 end
 
 20.times do
-<<<<<<< HEAD
-  Business.create(name: Faker::Company.name)
-=======
-  business = Business.create(name: Faker::Company.name)
->>>>>>> 14c278a01fbb448dd32fd75f5653cfec02d7f3b9
-end
+business = Business.create(name: Faker::Company.name)
 
 User.all.each do |user|
   Business.create(name: Faker::Company.name, user_id: user.id)
