@@ -36,7 +36,7 @@ gem 'bcrypt', '~> 3.1.7'
 # gem 'capistrano-rails', group: :development
 
 # Use debugger
-gem 'debugger', group: [:development, :test]
+# gem 'debugger', group: [:development, :test]
 
 #OCR
 gem 'rtesseract', '~> 1.2.4'
@@ -48,4 +48,7 @@ group :development, :test do
 end
 gem 'rails_12factor', group: :production
 gem 'foundation-rails'
+
+# gem 'chartkick'
+gem 'groupdate'
 gem 'font-awesome-sass'
