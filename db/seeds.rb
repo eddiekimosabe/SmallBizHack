@@ -18,7 +18,7 @@ User.create(
   )
 end
 
-20.times do
+100.times do
   Business.create(name: Faker::Company.name)
 end
 
@@ -38,7 +38,7 @@ User.all.each do |user|
   )
 end
 
-10.times do
+100.times do
   User.first.business.payable_invoices.create(
     amount: rand(100..1000),
     due_date: rand(60).days.from_now,

@@ -17,3 +17,9 @@
 //= require_tree .
 
 $(function(){ $(document).foundation(); });
+
+var options, a;
+$(function(){
+  options = { serviceUrl:'service/autocomplete.ashx' };
+  a = $('.query').autocomplete(options);
+});
