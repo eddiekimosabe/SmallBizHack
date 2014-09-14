@@ -20,8 +20,12 @@
 	    <%= link_to "Add Invoice", new_business_invoice_path(@business) %>
 	  </li>
 	  <li>
+	    <%= link_to "Reports", report_path(@business) %>
+	  </li>
+	  <li>
             <%= link_to "Invoices", business_invoices_path(@business) %>
           </li>
+
           <li>
             <%= link_to "Logout", logout_path, :method => "delete" %>
           </li>
