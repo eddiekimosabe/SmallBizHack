@@ -10,7 +10,7 @@
   <section class="top-bar-section">
     <ul class="right">
       <li class="has-dropdown">
-        <a href="#">DROP</a>
+        <a href="#">MENU</a>
         <ul class="dropdown">
 
           <li>
@@ -19,10 +19,7 @@
 	  <li>
 	    <%= link_to "Reports", report_path(@business) %>
 	  </li>
-	  <li>
-            <%= link_to "Invoices", business_invoices_path(@business) %>
-          </li>
-
+           <li><%= link_to "Add Invoice", new_business_invoice_path(@business) %></li>
           <li>
             <%= link_to "Logout", logout_path, :method => "delete" %>
           </li>
@@ -30,7 +27,6 @@
       </ul>
 
     <ul class="left">
-      <li><%= link_to "Create Invoice", new_business_invoice_path(@business) %></li>
     </ul>
 
   </section>
