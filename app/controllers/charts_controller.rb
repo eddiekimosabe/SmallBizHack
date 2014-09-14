@@ -4,7 +4,6 @@ class ChartsController < ApplicationController
     set_receivable_vars
     set_net_vars
     set_x_axis
-    binding.pry
   end
 
   def sums
