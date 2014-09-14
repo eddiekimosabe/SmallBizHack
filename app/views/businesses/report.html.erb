@@ -14,6 +14,7 @@
           <th>Days Outstanding</th>
       	  <th>Recipient</th>
       	  <th>Amount</th>
+          <th>Flag</th>
       	</tr>
       </thead>
       <tbody>
@@ -24,6 +25,7 @@
       	<td><%= invoice.days_outstanding %></td>
       	<td><%= invoice.receiver_name %></td>
       	<td>$<%= invoice.amount %></td>
+        <td></td>
       </tr>
     <% end %>
     </tbody>
