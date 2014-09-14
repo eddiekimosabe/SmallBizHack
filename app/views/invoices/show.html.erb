@@ -1,2 +1,20 @@
-<h1>Invoices#show</h1>
-<p>Find me in app/views/invoices/show.html.erb</p>
+<h1>Invoice <%= @invoice.id %></h1>
+
+Invoice amount: <%= @invoice.amount  %><br>
+
+Invoice due date: <%= @invoice.due_date  %><br>
+
+Invoice paid date: <%= @invoice.paid_date  %><br>
+
+Invoice received date: <%= @invoice.received_date  %><br>
+
+Invoice payer name: <%= @invoice.payer_name  %><br>
+
+Invoice receiver name: <%= @invoice.receiver_name  %><br>
+
+<br>
+
+
+<%= link_to "edit", :action => "edit" %>
+<%= link_to "delete",  business_invoice_path, :method => :delete %>
+<%= link_to "index", business_invoices_path %>
