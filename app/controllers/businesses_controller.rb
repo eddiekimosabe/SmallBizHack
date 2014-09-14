@@ -1,6 +1,6 @@
 class BusinessesController < ApplicationController
-  before_action :get_business, only: [:show, :update, :edit, :destroy]
-  before_action :require_logged_in_as_owner, only: [:show, :update, :edit, :destroy]
+  before_action :get_business, only: [:show, :update, :edit, :destroy, :report]
+  before_action :require_logged_in_as_owner, only: [:show, :update, :edit, :destroy, :report]
 
   def new
     @business = Business.new
@@ -28,12 +28,15 @@ class BusinessesController < ApplicationController
   end
 
   def edit
-
   end
 
   def destroy
     @business.destroy
     redirect_to businesses_path
+  end
+
+  def report
+
   end
 
   private

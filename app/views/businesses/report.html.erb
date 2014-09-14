@@ -1,0 +1,34 @@
+<h2>Invoice Reports</h2>
+<dl class="tabs" data-tab>
+  <dd class="active"><a href="#payable">Payable</a></dd>
+  <dd><a href="#receivable">Receivable</a></dd>
+</dl>
+
+<div class="tabs-content">
+  <div class="content active" id="payable">
+    <table>
+      <thead>
+	<tr>
+	  <th>Due Date</th>
+	  <th>Received Date</th>
+	  <th>Recipient</th>
+	  <th>Amount</th>
+	</tr>
+      </thead>
+      <tbody>
+    <% @user.payable_invoices.order('due_date ASC').each do |invoice| %>
+      <tr onclick="document.location = '/businesses/<%= @user.business.id %>/invoices/<%= invoice.id %>';">
+	<td><%= invoice.due_date %></td>
+	<td><%= invoice.received_date %></td>
+	<td><%= invoice.days_outstanding %></td>
+	<td><%= invoice.receiver.name %></td>
+	<td>$<%= invoice.amount %></td>
+      </tr>
+    <% end %>
+    </tbody>
+    </table>
+  </div>
+  <div class="content" id="receivable">
+    <p>This is the second panel of the basic tab example. This is the second panel of the basic tab example.</p>
+  </div>
+</div>
