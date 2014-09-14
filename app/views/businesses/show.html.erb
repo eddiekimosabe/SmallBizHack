@@ -1,4 +1,4 @@
 <h1><%= @business.name  %></h1>
 
-<%= link_to "edit", :action => "edit" %><br>
-<%= link_to "delete",  business_path, :method => :delete %>
+<%= link_to "edit", edit_business_path, :action => :edit, class: "button radius expand" %>
+<%= link_to "delete",  business_path, :method => :delete, class: "button radius expand" %>
