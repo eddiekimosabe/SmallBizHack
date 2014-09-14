@@ -46,6 +46,6 @@ group :development, :test do
   gem 'pry-rails'
   gem 'faker'
 end
-
+gem 'rails_12factor', group: :production
 gem 'foundation-rails'
 gem 'font-awesome-sass'
