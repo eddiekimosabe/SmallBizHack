@@ -15,11 +15,14 @@ class Invoice < ActiveRecord::Base
   end
 
   def payer_name
-    payer.name
+    payer ? payer.name : nil
   end
 
   def receiver_name
-    receiver.name
+    receiver ? receiver.name : nil
   end
-  
+
+  def days_outstanding
+    (DateTime.now - received_date).to_i
+  end
 end

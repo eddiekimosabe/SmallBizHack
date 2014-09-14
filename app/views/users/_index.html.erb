@@ -10,16 +10,16 @@
     </tr>
   </thead>
   <tbody>
-<% @user.payable_invoices.order('due_date ASC').limit(5).each do |payable| %>
-  <tr onclick="document.location = '/invoices/show/<%= payable.id %>';">
-    <td><%= payable.due_date %></td>
-    <td><%= payable.receiver.name %></td>
-    <td>$<%= payable.amount %></td>
+<% @user.payable_invoices.order('due_date ASC').limit(5).each do |invoice| %>
+  <tr onclick="document.location = '/businesses/<%= @user.business.id %>/invoices/<%= invoice.id %>';">
+    <td><%= invoice.due_date %></td>
+    <td><%= invoice.receiver.name %></td>
+    <td>$<%= invoice.amount %></td>
   </tr>
-  </a>
 <% end %>
 </tbody>
 </table>
+
 <h3>Receivable</h3>
 <table>
   <thead>
@@ -30,11 +30,11 @@
     </tr>
   </thead>
   <tbody>
-<% @user.receivable_invoices.order('due_date ASC').limit(5).each do |receivable| %>
-  <tr>
-    <td><%= receivable.due_date %></td>
-    <td><%= receivable.payer.name %></td>
-    <td><%= receivable.amount %></td>
+<% @user.receivable_invoices.order('due_date ASC').limit(5).each do |invoice| %>
+  <tr onclick="document.location = '/businesses/<%= @user.business.id %>/invoices/<%= invoice.id %>';">
+    <td><%= invoice.due_date %></td>
+    <td><%= invoice.receiver.name %></td>
+    <td>$<%= invoice.amount %></td>
   </tr>
 <% end %>
 </tbody>
