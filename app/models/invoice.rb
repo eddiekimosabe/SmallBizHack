@@ -21,5 +21,12 @@ class Invoice < ActiveRecord::Base
   def receiver_name
     receiver.name
   end
-  
+
+  def days_outstanding
+    if paid_date
+      (paid_date - due_date).to_i
+    else
+      nil
+    end
+  end
 end
