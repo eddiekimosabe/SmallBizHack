@@ -33,7 +33,7 @@
 <% @user.receivable_invoices.order('due_date ASC').limit(5).each do |invoice| %>
   <tr onclick="document.location = '/businesses/<%= @user.business.id %>/invoices/<%= invoice.id %>';">
     <td><%= invoice.due_date %></td>
-    <td><%= invoice.receiver.name %></td>
+    <td><%= invoice.payer.name %></td>
     <td>$<%= invoice.amount %></td>
   </tr>
 <% end %>
