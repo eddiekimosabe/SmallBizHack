@@ -1,3 +1,7 @@
+<h2>Cashflow Graph</h2>
+<%= javascript_include_tag 'cash_flow_graph' %>
+<%= render partial: 'charts/cash_flow_graph' %>
+
 <h2>Upcoming Invoices for <%= @user.business.name %></h2>
 
 <h3>Payable</h3>
@@ -39,6 +43,3 @@
 <% end %>
 </tbody>
 </table>
-<h2>Cashflow Graph</h2>
-<%= javascript_include_tag 'cash_flow_graph' %>
-<%= render partial: 'charts/cash_flow_graph' %>
