@@ -3,5 +3,6 @@ class WelcomeController < ApplicationController
 
 
   def index
+    @business = @user.business if current_user
   end
 end
