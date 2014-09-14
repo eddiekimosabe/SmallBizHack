@@ -1,12 +1,10 @@
 <% if @user %>
-	<%= render partial: 'users/index' %>
+
+  <%= render partial: 'users/index' %>
+
 <% else %>
 
-<h2>Reported Companies</h2>
-<dl class="tabs" data-tab>
-  <dd class="active"><a href="#payable">Payable</a></dd>
-  <dd><a href="#receivable">Receivable</a></dd>
-</dl>
+<h2>Companies Reported for Not Paying Invoices</h2>
 
 <div class="tabs-content">
   <div class="content active" id="payable">
@@ -14,7 +12,7 @@
       <thead>
       	<tr>
       	  <th>Business Name</th>
-      	  <th>Number of Flags</th>
+      	  <th>Number of Reports</th>
       	</tr>
       </thead>
       <tbody>

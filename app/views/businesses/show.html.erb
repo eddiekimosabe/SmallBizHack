@@ -1,7 +1,4 @@
-<h1>Businesses#show</h1>
-<p>Find me in app/views/businesses/show.html.erb</p>
+<h1><%= @business.name  %></h1>
 
-<%= @business.name  %>
-
-<%= link_to "edit", :action => "edit" %>
+<%= link_to "edit", :action => "edit" %><br>
 <%= link_to "delete",  business_path, :method => :delete %>
