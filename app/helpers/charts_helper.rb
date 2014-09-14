@@ -1,10 +1,4 @@
-class ChartsController < ApplicationController
-  def index
-    set_payable_vars
-    set_receivable_vars
-    set_net_vars
-    set_x_axis
-  end
+module ChartsHelper
 
   def sums
     sums = receivable_sums.zip(payable_sums).map {|array| array.inject(:+)}
@@ -17,7 +11,7 @@ class ChartsController < ApplicationController
   end
 
   def business
-    @business ||= User.find(1).business
+    @business = @user.business if current_user
   end
 
   def payable

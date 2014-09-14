@@ -1,6 +1,3 @@
-<script src="http://code.highcharts.com/highcharts.js"></script>
-<script src="http://code.highcharts.com/modules/exporting.js"></script>
-<script>
 $(function () {
     $('#container').highcharts({
         chart: {
@@ -12,10 +9,10 @@ $(function () {
                 }
             },
         title: {
-            text: 'Title'
+            text: businessName
         },
         subtitle: {
-            text: 'Subtitle'
+            text: 'Cash Flow Graph'
         },
         yAxis:
         { // Primary yAxis
@@ -26,7 +23,7 @@ $(function () {
                 }
             },
             title: {
-                text: 'Amount',
+                text: 'Amount ($)',
                 style: {
                     color: Highcharts.getOptions().colors[1]
                 }
@@ -45,36 +42,39 @@ $(function () {
             backgroundColor: (Highcharts.theme && Highcharts.theme.legendBackgroundColor) || '#FFFFFF'
         },
         xAxis: [{
-            categories:[<%= raw @x_axis %>]
+            categories: xAxis,
+            title: {
+                text: 'Date',
+                style: {
+                    color: Highcharts.getOptions().colors[1]
+                }
+            }
         }],
         series: [{
-            name: 'Receivable',
+            name: 'Receivable Invoices',
             type: 'column',
-            data: [<%= @receivable_vars %>],
+            data: receivableVars,
             tooltip: {
                 valuePrefix: '$'
             },
             stack : '0'
 
         },{
-            name: 'Payable',
+            name: 'Payable Invoices',
             type: 'column',
-            data: [<%= @payable_vars %>],
+            data: payableVars,
             tooltip: {
                 valuePrefix: '$'
             },
             stack : '0'
 
         }, {
-            name: 'Net',
+            name: 'Net Cash Flow',
             type: 'spline',
-            data: [<%= @net_vars %>],
+            data: netVars,
             tooltip: {
                 valuePrefix: '$'
             }
         }]
     });
 });
-</script>
-
-<div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
