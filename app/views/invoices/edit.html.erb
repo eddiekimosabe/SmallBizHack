@@ -6,13 +6,13 @@
   <%= f.text_field :amount %>
 
   <%= f.label :due_date, "Due Date" %>
-  <%= f.text_field :due_date %>
+  <%= f.date_field :due_date %>
 
   <%= f.label :paid_date, "Paid Date" %>
-  <%= f.text_field :paid_date %>
+  <%= f.date_field :paid_date %>
 
   <%= f.label :received_date, "Received Date" %>
-  <%= f.text_field :received_date %>
+  <%= f.date_field :received_date %>
 
   <%= f.label :payer_name, "Payer Name" %>
   <%= f.text_field :payer_name %>
@@ -20,5 +20,5 @@
   <%= f.label :receiver_name, "Receiver Name" %>
   <%= f.text_field :receiver_name %>
 
-  <%= f.submit "Submit" %>
+  <%= f.submit "Submit", class: "button radius expand"%>
 <% end -%>
