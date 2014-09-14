@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'charts/index'
   get 'businesses/index'
 
   get 'businesses/edit'
