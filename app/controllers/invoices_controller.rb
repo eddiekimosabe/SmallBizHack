@@ -8,8 +8,14 @@ class InvoicesController < ApplicationController
   end
 
   def create
-    @invoice = @business.invoices.build(invoice_params)
+    # @invoice = @business.invoices.build(invoice_params)
+    @payer_business = Business.find_or_create_by(name: params[:payer_name])
+    @receiver_business = Business.find_or_create_by(name: params[:receiver_name])
+    @invoice = Invoice.new(invoice_params)
+    @invoice.payer_id = @payer_business.id
+    @invoice.receiver_id = @receiver_business.id
     @invoice.save
+    redirect_to business_invoices_path
   end
 
   def index
@@ -17,14 +23,20 @@ class InvoicesController < ApplicationController
   end
 
   def edit
+
   end
 
   def show
+    @invoice = Invoice.find(params[:id])
   end
 
   def update
+    @payer_business = Business.find_or_create_by(name: params[:payer_name])
+    @receiver_business = Business.find_or_create_by(name: params[:receiver_name])
+    @invoice.payer_id = @payer_business.id
+    @invoice.receiver_id = @receiver_business.id
     @invoice.update(invoice_params)
-    redirect_to @business
+    redirect_to business_invoices_path
   end
 
   def destroy
@@ -42,7 +54,7 @@ class InvoicesController < ApplicationController
   end
 
   def get_invoice
-    @invoice = @business.invoices.find(params[:id])
+    @invoice = Invoice.find(params[:id])
   end
 end
 
