@@ -16,9 +16,6 @@
           <li>
             <%= link_to "Profile", @business %>
           </li>
-          <li>
-	    <%= link_to "Add Invoice", new_business_invoice_path(@business) %>
-	  </li>
 	  <li>
 	    <%= link_to "Reports", report_path(@business) %>
 	  </li>
@@ -37,6 +34,7 @@
     </ul>
 
   </section>
+
   <% else %>
   <section class="top-bar-section">
     <ul class="right">
