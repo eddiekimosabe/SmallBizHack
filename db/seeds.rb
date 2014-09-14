@@ -19,16 +19,18 @@ User.create(
 end
 
 20.times do
-  Business.create(name: Faker::Company.name)
+  Business.create(name: Faker::Company.name, flagged_id: Business.all.sample.id, flagger_id: business.id)
 end
 
 User.all.each do |user|
+
   Business.create(name: Faker::Company.name, user_id: user.id)
   user.business.payable_invoices.create(
     amount: rand(100..1000),
     due_date: rand(60).days.from_now,
     received_date: DateTime.now,
     receiver_id: Business.all.sample.id
+
   )
   user.business.receivable_invoices.create(
     amount: rand(100..1000),
