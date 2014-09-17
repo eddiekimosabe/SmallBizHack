@@ -1,9 +1,9 @@
-<h1>Cash-Flows</h1>
-<p>Our target users are small businesses who want to better manage complexities for their payables and receivables, predict their cash needs, as well as to avoid bad customers/suppliers and/or renegotiate bad terms</p>
-<h2>Team Members</h2>
-<ul>
-  <li><a href="https://github.com/apesic">Alexei Pesic</a></li>
-  <li><a href="https://github.com/eddiekimosabe">Eddie Kim</a></li>
-  <li><a href="https://github.com/georgexzeng">George Zeng</a></li>
-  <li><a href="https://github.com/hab278">Hannan Butt</a></li>
-</ul>
+Cash-Flows
+=======
+Our target users are small businesses who want to better manage complexities for their payables and receivables, predict their cash needs, as well as to avoid bad customers/suppliers and/or renegotiate bad terms
+
+##Team Members
+- [Alexei Pesic](https://github.com/apesic)
+- [Eddie Kim](https://github.com/eddiekimosabe)
+- [George Zeng](https://github.com/georgexzeng)
+- [Hannan Butt](https://github.com/hab278)
