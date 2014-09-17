@@ -1,9 +1,28 @@
-Cash-Flows
-=======
-Our target users are small businesses who want to better manage complexities for their payables and receivables, predict their cash needs, as well as to avoid bad customers/suppliers and/or renegotiate bad terms
+== README
 
-##Team Members
-- [Alexei Pesic](https://github.com/apesic)
-- [Eddie Kim](https://github.com/eddiekimosabe)
-- [George Zeng](https://github.com/georgexzeng)
-- [Hannan Butt](https://github.com/hab278)
+This README would normally document whatever steps are necessary to get the
+application up and running.
+
+Things you may want to cover:
+
+* Ruby version
+
+* System dependencies
+
+* Configuration
+
+* Database creation
+
+* Database initialization
+
+* How to run the test suite
+
+* Services (job queues, cache servers, search engines, etc.)
+
+* Deployment instructions
+
+* ...
+
+
+Please feel free to use a different markup language if you do not plan to run
+<tt>rake doc:app</tt>.
