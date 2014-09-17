@@ -1,4 +1,4 @@
-Cash-Flows
+#Cash-Flows
 =======
 Our target users are small businesses who want to better manage complexities for their payables and receivables, predict their cash needs, as well as to avoid bad customers/suppliers and/or renegotiate bad terms
 
